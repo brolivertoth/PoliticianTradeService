@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <title>Histogram</title>
+</head>
+<body>
+<h1>Histogram of Actions per Date</h1>
+<form method="POST">
+    <label for="symbol">Company Symbol:</label>
+    <input type="text" id="symbol" name="symbol" value="{{ symbol }}" required><br><br>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const requiredFields = document.querySelectorAll('[required]');
+            for (let i = 0; i < requiredFields.length; i++) {
+                requiredFields[i].addEventListener('invalid', function() {
+                    this.setCustomValidity('Please fill in this field');
+                });
+                requiredFields[i].addEventListener('input', function() {
+                    this.setCustomValidity('');
+                });
+            }
+        });
+    </script>
+    <input type="submit" value="Submit">
+</form>
+{% if plot_url %}
+<img src="data:image/png;base64,{{ plot_url }}" alt="Histogram Plot">
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Amount From</th>
+        <th>Amount To</th>
+        <th>Company Symbol</th>
+        <th>Asset Name</th>
+        <th>Politician</th>
+        <th>Filing Date</th>
+        <th>Transaction Date</th>
+        <th>Transaction Type</th>
+        <th>Relationship to Politician</th>
+        <th>Political Position</th>
+        <th>Political Party</th>
+        <th>Conditions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for trade in trades %}
+    <tr>
+        <td>{{ trade.id }}</td>
+        <td>{{ trade.amountFrom }}</td>
+        <td>{{ trade.amountTo }}</td>
+        <td>{{ trade.symbol }}</td>
+        <td>{{ trade.assetName }}</td>
+        <td>{{ trade.name }}</td>
+        <td>{{ trade.filingDate }}</td>
+        <td>{{ trade.transactionDate }}</td>
+        <td>{{ trade.transactionType }}</td>
+        <td>{{ trade.ownerType }}</td>
+        <td>{{ trade.position }}</td>
+        <td>{{ trade.party }}</td>
+        <td>{{ trade.conditions }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

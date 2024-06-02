@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <title>PValue</title>
+</head>
+<body>
+<h1>PValue of Actions vs Date</h1>
+<form method="POST">
+    <input type="submit" value="Submit">
+</form>
+{% if plot_url %}
+<img src="data:image/png;base64,{{ plot_url }}" alt="PValue Plot">
+{% endif %}
+<p>Pearson PValue: {{ pearson_p }}</p>
+<p>Pearson Correlation: {{ pearson_corr }}</p>
+
+<p>Spearman PValue: {{ spearman_p }}</p>
+<p>Spearman Correlation: {{ spearman_corr }}</p>
+
+<p>Kendall PValue: {{ kendall_p }}</p>
+<p>Kendall Correlation: {{ kendall_corr }}</p>
+
+</body>
+</html>
